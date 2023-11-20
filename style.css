@@ -17,7 +17,35 @@
     max-height: 30px;
 }
 
-/* .list-group{
-    display: block;
-    
-} */
+.button-container {
+    display: flex;
+    flex-direction: column; /* Aligns children elements (buttons) vertically */
+    align-items: start; /* Aligns buttons to the start (left) of the container */
+    gap: 10px; /* Optional: Adds space between buttons */
+}
+
+.button-container button {
+    width: 100px; /* Set a specific width for all buttons */
+    /* Add additional styling as needed */
+}
+
+.input-group, .input-group-append {
+    display: block; /* Ensure these are block-level elements */
+    width: 100%; /* Take the full width of the parent container */
+}
+
+.weather-container {
+    width: 100%;
+}
+
+#search-button {
+    width: 100%;
+}
+
+.side-panel {
+    width: 350px;
+}
+
+#search-input {
+    width: 100%;
+}

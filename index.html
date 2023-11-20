@@ -20,36 +20,34 @@
   <div class="container-fluid" style="max-width: 1400px">
     <div class="layout">
       <div class="row">
-        <aside class="">
+        <aside class="side-panel">
           <h2 id="form-heading" class="form-label">
             Search for a City:
           </h2>
           <form id="search-form" class="form">
             <div class="form-inline form-group">
-              <div class="input-group">
-                <input class="form-input weather-search" type="text" id="search-input" placeholder="London"
-                  aria-labelledby="form-heading" aria-controls="today forecast" />
-                <div class="input-group-append">
-                  <button type="submit" class="search-button btn btn-primary" id="search-button" aria-label="submit search">
-                    Search
-                  </button>
-                  <hr class="hr weather-hr" />
+                <!-- Search Input -->
+                <div class="input-group">
+                    <input class="form-input weather-search" type="text" id="search-input" placeholder="London"
+                           aria-labelledby="form-heading" aria-controls="today forecast" />
                 </div>
-              </div>
+                <!-- Button moved outside of the input-group -->
+                <div class="input-group-append">
+                    <button type="submit" class="search-button btn btn-primary" id="search-button" aria-label="submit search">
+                        Search
+                    </button>
+                </div>
             </div>
-          </form>
+            <hr class="hr weather-hr" />
+        </form>
           <div class="list-group" id="history">
-            <button type="button" class="list-group-item list-group-item-action active" aria-current="true">
-              The current button
-            </button>
-            <button type="button" class="list-group-item list-group-item-action">A second button item</button>
-            <button type="button" class="list-group-item list-group-item-action">A third button item</button>
-            <button type="button" class="list-group-item list-group-item-action">A fourth button item</button>
-            <button type="button" class="list-group-item list-group-item-action">A disabled button item</button>
+            <button type="button">Button 1</button>
+            <button type="button">Button 2</button>
+            <button type="button">Button 3</button>
           </div>
         </aside>
       </div>
-        <div class="">
+        <div class="weather-container">
           
             <div class="card" id="card-1">
               <h3 id="cityName">Search your local weather now</h3>
