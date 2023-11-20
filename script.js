@@ -19,8 +19,17 @@ $("button").on("click", function (event) {
   
         console.log(data);
         // storing the data from the Fetch request in the results variable
-        var results = data.data;
-  
+        var results = JSON.stringify(data.list[0], null, 2)
+        var temp = data.list[0].main.temp
+        var wind = data.list[0].wind.speed
+        var humidity = data.list[0].main.humidity
+        var date = data.list[0].dt_txt
+        console.log(temp)
+        console.log(wind)
+        console.log(humidity)
+        console.log(date)
+
+        console.log("the results are" + results)
         // }
       });
   });

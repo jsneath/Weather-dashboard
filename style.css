@@ -2,3 +2,22 @@
     color: green;
 }
 
+.form-label {
+    font-size: 20px;
+}
+
+.layout {
+    display: flex;
+    align-items:start
+
+}
+
+.button {
+    width: 100px;
+    max-height: 30px;
+}
+
+/* .list-group{
+    display: block;
+    
+} */
