@@ -21,19 +21,19 @@
 
 .button-container {
     display: flex;
-    flex-direction: column; /* Aligns children elements (buttons) vertically */
-    align-items: start; /* Aligns buttons to the start (left) of the container */
-    gap: 10px; /* Optional: Adds space between buttons */
+    flex-direction: column; 
+    align-items: start;
+    gap: 10px; 
 }
 
 .button-container button {
-    width: 100px; /* Set a specific width for all buttons */
-    /* Add additional styling as needed */
+    width: 100px; 
+   
 }
 
 .input-group, .input-group-append {
-    display: block; /* Ensure these are block-level elements */
-    width: 100%; /* Take the full width of the parent container */
+    display: block; 
+    width: 100%;
 }
 
 .weather-container {
@@ -66,21 +66,17 @@
     background-color: rgb(159, 159, 159);
 }
 
-/* .search-list li {
-    width: 100%;
-    /* other styles if needed */
-
     li {
         list-style-type: none;
     }
 
     .inline-container h3,
-.inline-container h5,
-.inline-container img {
-    display: inline-block; /* or 'inline' depending on your needs */
-    vertical-align: middle; /* Aligns them vertically in the middle */
-    margin-right: 10px; /* Optional: adds some space between elements */
-}
+    .inline-container h5,
+    .inline-container img {
+    display: inline-block;
+    vertical-align: middle; 
+    margin-right: 10px; 
+    }
 
 .card-1-content {
 margin-left: 10px;
