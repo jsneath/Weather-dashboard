@@ -24,17 +24,21 @@ function loadWeather(cityName) {
        console.log(data);
        // storing the data from the Fetch request in the results variable
        
-       todaysWeather.textContent= cityName
+       todaysWeather.textContent= cityName.charAt(0).toUpperCase() + cityName.slice(1);
        
-          var temp = data.main.temp
+          var tempData = data.main.temp
+          var temp = (tempData - 273.15).toFixed(2)
           var wind = data.wind.speed
           var humidity = data.main.humidity
           var card = document.getElementById('card-1')
+          var iconCode = data.weather[0].icon
+          var iconUrl = "http://openweathermap.org/img/wn/" + iconCode + ".png";
  
-          card.querySelector('.card-date').textContent = "Date: " + today;
-          card.querySelector('.card-temp').textContent = "Temperature: " + temp + "°C";
-          card.querySelector('.card-wind').textContent = "Wind Speed: " + wind + " km/h";
+          card.querySelector('.card-date').textContent = "(" + today + ")";
+          card.querySelector('.card-temp').textContent = "Temp: " + temp + "°C";
+          card.querySelector('.card-wind').textContent = "Wind: " + wind + " KPH";
           card.querySelector('.card-humid').textContent = "Humidity: " + humidity + "%";
+          card.querySelector('.icon').src = iconUrl;
                
     });
 
@@ -49,26 +53,32 @@ function loadWeather(cityName) {
         console.log(data);
         // storing the data from the Fetch request in the results variable
 
-        for (i = 0, cardNumber = 2; i <= data.list.length; i +=8, cardNumber++) {
+        for (i = 4, cardNumber = 2; i <= data.list.length; i +=8, cardNumber++) {
             
             if (data.list[i]) {
-                var temp = data.list[i].main.temp
+                var tempData = data.list[i].main.temp
+                var temp = (tempData - 273.15).toFixed(2)
                 var wind = data.list[i].wind.speed
                 var humidity = data.list[i].main.humidity
-                var date = data.list[i].dt_txt
+                var dateTime = data.list[i].dt_txt; // "2023-11-23 12:00:00"
+                var datePart = dateTime.split(' ')[0]; // Gets "2023-11-23"
+                var dateParts = datePart.split('-'); // Splits into ["2023", "11", "23"]
+
+                // Rearrange and format the date to "23/11/2023"
+                var formattedDate = dateParts[2] + '/' + dateParts[1] + '/' + dateParts[0];
+                var iconCode = data.list[i].weather[0].icon
+                var iconUrl = "http://openweathermap.org/img/wn/" + iconCode + ".png";
+                // card.querySelector('.icon').src = iconUrl;
 
                 var card = document.getElementById('card-' + cardNumber);
 
-                card.querySelector('.card-date').textContent = "Date: " + date;
-                card.querySelector('.card-temp').textContent = "Temperature: " + temp + "°C";
-                card.querySelector('.card-wind').textContent = "Wind Speed: " + wind + " km/h";
+                card.querySelector('.card-date').textContent = formattedDate;
+                card.querySelector('.card-temp').textContent = "Temp: " + temp + "°C";
+                card.querySelector('.card-wind').textContent = "Wind: " + wind + " KPH";
                 card.querySelector('.card-humid').textContent = "Humidity: " + humidity + "%";
-                
+                card.querySelector('.icon').src = iconUrl;
 
-                console.log(temp)
-                console.log(wind)
-                console.log(humidity)
-                console.log(date)
+              
             } 
         }
     });
@@ -79,7 +89,8 @@ $(".search-button").on("click", function (event) {
     var cityName = $("#search-input").val();
     loadWeather(cityName)
     saveSearch(cityName)
-  
+    document.querySelector('.weather-container').style.display = 'block';
+    document.getElementById('search-input').value = '';
 });
 
  function saveSearch(cityName) {
@@ -87,7 +98,7 @@ $(".search-button").on("click", function (event) {
     let searches = JSON.parse(localStorage.getItem('searchHistory')) || [];
 
     // Add the new city to the array
-    searches.push(cityName);
+    searches.push(cityName.charAt(0).toUpperCase() + cityName.slice(1));
 
     // Save back to localStorage
     localStorage.setItem('searchHistory', JSON.stringify(searches));  
@@ -108,7 +119,7 @@ $(".search-button").on("click", function (event) {
         let listItem = document.createElement('li');
         let button = document.createElement('button');
 
-        button.textContent = city;
+        button.textContent = city
 
         button.onclick = function() { loadWeather(city); }
         listItem.appendChild(button);

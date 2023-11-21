@@ -1,5 +1,6 @@
 #form-heading{
-    color: green;
+    font-weight: bolder;
+    font-size: 30px;
 }
 
 .form-label {
@@ -8,7 +9,8 @@
 
 .layout {
     display: flex;
-    align-items:start
+    align-items:start;
+    margin-top: 10px;
 
 }
 
@@ -36,16 +38,59 @@
 
 .weather-container {
     width: 100%;
+    display: none;
 }
 
 #search-button {
     width: 100%;
+    margin-top: 15px;
+    background-color: rgb(71, 117, 177);
 }
 
 .side-panel {
     width: 350px;
+    margin-right: 10px;
 }
 
 #search-input {
     width: 100%;
+    border-radius: 5px;
+    border-width: 1px;
+}
+
+.search-list button {
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border-width: 0px;
+    background-color: rgb(159, 159, 159);
+}
+
+/* .search-list li {
+    width: 100%;
+    /* other styles if needed */
+
+    li {
+        list-style-type: none;
+    }
+
+    .inline-container h3,
+.inline-container h5,
+.inline-container img {
+    display: inline-block; /* or 'inline' depending on your needs */
+    vertical-align: middle; /* Aligns them vertically in the middle */
+    margin-right: 10px; /* Optional: adds some space between elements */
+}
+
+.card-1-content {
+margin-left: 10px;
+}
+
+.card-body {
+    background-color: rgb(38, 64, 95);
+    color: white;
+}
+
+.bg-blue{
+    background: linear-gradient(to right, #add8e6, rgb(38, 64, 95))
 }
